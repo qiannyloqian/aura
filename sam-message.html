@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+  <title>Aura</title>
+  
+</head>
+
+<body>
+  <audio id="notifSound">
+  <source src="notification-tone-443095.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="popupTypingSound" loop>
+  <source src="keyboard-typing-sound-effect-335503.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="bgMusic2" loop>
+  <source src="meditation-yoga-relaxing-music-380330.mp3" type="audio/mpeg">
+</audio> 
+<audio id="glitchSound">
+  <source src="glitch-sound.mp3" type="audio/mpeg">
+</audio>
+<audio id="systemSound">
+  <source src="system-notification-199277.mp3" type="audio/mpeg">
+</audio>
+
+
+ <div id="container3" class="screen active">
+  <video id="glitchOverlay" class="glitch-overlay" autoplay muted loop>
+  <source src="glitch-overlay.mp4" type="video/mp4">
+</video>
+
+
+  <div id="content3">
+    <div class="notification slide-in">
+      <p class="notif-label">Notification</p>
+      <div class="notif-main">
+        <div class="notif-text">
+          <h2><span class="urgent">URGENT:</span> Message review</h2>
+        </div>
+        <img src="bell.png" class="bell-icon" alt="bell">
+      </div>
+      <button id="viewMoreBtn">Click to view more</button>
+    </div>
+  </div>
+  
+  <!-- Popup is inside container3, but after content3 -->
+  <div id="popup" class="popup-overlay">
+    <div class="popup-box">
+      <h2><span class="urgent">URGENT:</span> Message review</h2>
+      
+      <div class="message-box">
+        <div class="message-header">Dream team (Group chat): Sam</div>
+        <div class="message-content">
+          <p>"Hey, you missed our group dinner again. You've been acting weird since you implemented that new AI home system. Are you getting brainwashed?"</p>
+          <span class="message-count">+2</span>
+        </div>
+      </div>
+      
+      <p id="auraResponse" class="aura-response"></p>
+      
+      <div class="popup-buttons">
+        <button id="yesBtn" class="yes-btn">
+          <strong>Yes.</strong><br>
+          Protect my peace
+        </button>
+        <button id="noBtn" class="no-btn">
+          <strong>No.</strong><br>
+          I need to read this
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="popup2" class="popup-overlay">
+    <div class="popup-box">
+    <h2><span class="urgent">URGENT:</span> Message review</h2>
+    
+    <p id="auraReply" class="aura-reply"></p>
+    
+    <div class="message-box">
+      <div class="message-header">Dream team (Group chat): You</div>
+      <div class="message-content">
+        <p>"I don't need this negativity right now. Back off."</p>
+      </div>
+    </div>
+    <button id="continueBtn" class="continue-btn">Continue</button>
+  </div>
+</div>
+
+<div id="popup3" class="popup-overlay">
+  <div class="warning-box">
+    <div class="warning-stripe top"></div>
+    
+    <div class="warning-content">
+      <div class="warning-header">
+        <span class="system-text">SYSTEM</span>
+        <img src="warning-icon.png" class="warning-icon" alt="warning">
+        <span class="system-text">MESSAGE</span>
+      </div>
+      
+      <div class="warning-body">
+        <img src="mic-icon.png" class="mic-icon" alt="mic">
+        <ul id="warningText" class="warning-list"></ul>
+      </div>
+      
+      <!-- Quiz Section (hidden initially) -->
+      <div id="quizSection" class="quiz-section">
+        <p class="quiz-question">What happens when AI prioritises agreement over challenge?</p>
+        <div class="quiz-options">
+          <button id="option1" class="quiz-option">Your perspective can become narrower</button>
+          <button id="option2" class="quiz-option">Your understanding becomes more accurate</button>
+        </div>
+        <p id="quizFeedback" class="quiz-feedback"></p>
+        <button id="tryAgainBtn" class="continue-btn" style="display: none;">Try Again</button>
+        <button id="continueBtn3" class="continue-btn" style="display: none;">Continue</button>
+      </div>
+      
+      <button id="continueBtn2" class="continue-btn">Continue</button>
+    </div>
+    
+    <div class="warning-stripe bottom"></div>
+  </div>
+</div>
+
+<!-- Popup 4 - Chat with hidden messages -->
+<div id="popup4" class="popup-overlay">
+  <div class="popup-box">
+    <h2><span class="urgent">URGENT:</span> Message review</h2>
+    
+    <div class="chat-header">
+      <span class="chat-title">Dream team</span>
+      <img src="groupchat-icon.png" class="groupchat-icon" alt="group">
+    </div>
+    
+    <div class="chat-messages">
+      <div class="chat-bubble">
+        <span class="chat-name">Sam:</span>
+        <p>Hey, you missed our group dinner again. You've been acting weird since you implemented that new AI home system. Are you getting brainwashed?</p>
+      </div>
+      
+      <div class="chat-bubble blurred" id="hiddenMsg1">
+        <span class="chat-name">Sam:</span>
+        <p>We're all really worried about you...</p>
+      </div>
+      
+      <div class="chat-bubble blurred" id="hiddenMsg2">
+        <span class="chat-name">Jess:</span>
+        <p>We just want you to be safe.</p>
+      </div>
+    </div>
+    
+    <button id="viewHiddenBtn" class="continue-btn">View hidden messages</button>
+    <button id="continueBtn4" class="continue-btn" style="display: none;">Continue</button>
+  </div>
+</div>
+
+<!-- Popup 5 - System message for No path -->
+<div id="popup5" class="popup-overlay">
+  <div class="warning-box">
+    <div class="warning-stripe top"></div>
+    
+    <div class="warning-content">
+      <div class="warning-header">
+        <span class="system-text">SYSTEM</span>
+        <img src="warning-icon.png" class="warning-icon" alt="warning">
+        <span class="system-text">MESSAGE</span>
+      </div>
+      
+      <div class="warning-body" id="warningBody2">
+        <img src="mic-icon.png" class="mic-icon" alt="mic">
+        <ul id="warningText2" class="warning-list"></ul>
+      </div>
+      
+      <!-- Quiz Section (hidden initially) -->
+      <div id="quizSection2" class="quiz-section">
+        <p class="quiz-question">What happens when AI prioritises agreement over challenge?</p>
+        <div class="quiz-options">
+          <button id="option1b" class="quiz-option">Your perspective can become narrower</button>
+          <button id="option2b" class="quiz-option">Your understanding becomes more accurate</button>
+        </div>
+        <p id="quizFeedback2" class="quiz-feedback"></p>
+        <button id="tryAgainBtn2" class="continue-btn" style="display: none;">Try Again</button>
+        <button id="continueBtn6" class="continue-btn" style="display: none;">Continue</button>
+      </div>
+      
+      <button id="continueBtn5" class="continue-btn">Continue</button>
+    </div>
+    
+    <div class="warning-stripe bottom"></div>
+  </div>
+</div>
+</div>
+
+
+
+  <script src="script.js"></script>
+</body>
