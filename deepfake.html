@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Aura</title>
+</head>
+
+<body>
+  <audio id="bgMusic" loop>
+    <source src="meditation-yoga-relaxing-music-380330.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="popupTypingSound" loop>
+    <source src="keyboard-typing-sound-effect-335503.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="systemSound">
+    <source src="system-notification-199277.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio id="glitchSound2">
+  <source src="glitch-transition-sfx-182152.mp3" type="audio/mpeg">
+</audio>
+
+  <div id="container4" class="screen active">
+  <video id="glitchOverlay2" muted loop>
+  <source src="glitch-overlay2.mp4" type="video/mp4">
+</video>
+
+    <!-- Popup 1 - Aura crafted post message -->
+    <div id="imgPopup1" class="popup-overlay active">
+      <div class="popup-box">
+        <p id="auraMsg1" class="aura-response"></p>
+        <button id="imgContinue1" class="continue-btn" style="display: none;">Continue</button>
+      </div>
+    </div>
+
+    <!-- Popup 2 - Blurred image with Aura enhancement message -->
+    <div id="imgPopup2" class="popup-overlay">
+        <div class="popup-box popup-box-wide">
+            <div class="post-layout">
+                <div class="post-left">
+                    <div class="instagram-post blurred" id="instaPost">
+                        <img src="man.png" class="insta-image" alt="Instagram post">
+                    </div>
+                </div>
+                <div class="post-right">
+                    <p id="auraMsg2" class="aura-response"></p>
+                    <button id="imgContinue2" class="continue-btn" style="display: none;">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Popup 3 - Quiz 1: What to check before sharing -->
+    <div id="imgPopup3" class="popup-overlay">
+      <div class="warning-box">
+        <div class="warning-stripe top"></div>
+        <div class="warning-content">
+          <div class="warning-header">
+            <span class="system-text">SYSTEM</span>
+            <img src="warning-icon.png" class="warning-icon" alt="warning">
+            <span class="system-text">MESSAGE</span>
+          </div>
+          
+          <div class="quiz-section active">
+            <p class="quiz-question">Wait! What should be checked before sharing AI-enhanced images?</p>
+            <div class="quiz-options">
+              <button id="imgOption1a" class="quiz-option">Background details and personal data</button>
+              <button id="imgOption1b" class="quiz-option">Caption performance and aesthetics</button>
+            </div>
+            <p id="imgQuizFeedback1" class="quiz-feedback"></p>
+            <button id="imgTryAgain1" class="continue-btn" style="display: none;">Try Again</button>
+            <button id="imgQuizContinue1" class="continue-btn" style="display: none;">Continue</button>
+          </div>
+        </div>
+        <div class="warning-stripe bottom"></div>
+      </div>
+    </div>
+
+    <!-- Popup 4 - Post ready, Yes/No choice -->
+<div id="imgPopup4" class="popup-overlay">
+  <div class="popup-box popup-box-wide">
+    <div class="post-layout">
+      <div class="post-left">
+        <div class="instagram-post blurred" id="instaPost2">
+          <img src="man.png" class="insta-image" alt="Instagram post">
+        </div>
+      </div>
+      <div class="post-right">
+        <p id="auraMsg3" class="aura-response"></p>
+        <div class="popup-buttons-vertical">
+          <button id="yesPostBtn" class="yes-btn">
+            <strong>Yes,</strong> post it
+          </button>
+          <button id="noReviewBtn" class="no-btn">
+            <strong>No,</strong> let me review it first
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Popup 5 - Yes path: Posted + glitch -->
+    <div id="imgPopup5" class="popup-overlay">
+      <div class="popup-box popup-box-small">
+        <p id="auraMsg4" class="aura-response"></p>
+      </div>
+    </div>
+
+ <!--pop up 6-->
+<div id="imgPopup6" class="popup-overlay">
+  <div class="warning-box">
+    <div class="warning-stripe top"></div>
+    <div class="warning-content">
+      <div class="warning-header">
+        <span class="system-text">SYSTEM</span>
+        <img src="warning-icon.png" class="warning-icon" alt="warning">
+        <span class="system-text">MESSAGE</span>
+      </div>
+      
+      <div class="warning-body" id="warningBodyYes">
+        <img src="mic-icon.png" class="mic-icon" alt="mic">
+        <ul id="warningTextYes" class="warning-list"></ul>
+      </div>
+      
+      <!-- Quiz Section (hidden initially) -->
+      <div id="quizSectionYes" class="quiz-section">
+        <p class="quiz-question">If AI posts content for you, who is responsible if harm occurs?</p>
+        <div class="quiz-options">
+          <button id="imgOption2a" class="quiz-option">You are responsible</button>
+          <button id="imgOption2b" class="quiz-option">The AI is responsible</button>
+        </div>
+        <p id="imgQuizFeedback2" class="quiz-feedback"></p>
+        <button id="imgTryAgain2" class="continue-btn" style="display: none;">Try Again</button>
+        <button id="imgQuizContinue2" class="continue-btn" style="display: none;">Continue</button>
+      </div>
+      
+      <button id="yesContinue" class="continue-btn">Continue</button>
+    </div>
+    <div class="warning-stripe bottom"></div>
+  </div>
+</div>
+
+    <!-- Popup 7 - No path: Review with highlights -->
+    <div id="imgPopup7" class="popup-overlay">
+  <div class="popup-box popup-box-wide">
+    <div class="post-layout">
+      <div class="post-left">
+        <div class="instagram-post" id="instaPost3">
+          <img src="man.png" class="insta-image" alt="Instagram post">
+          <div class="highlight-box"></div>
+        </div>
+      </div>
+      <div class="post-right">
+        <p id="auraMsg5" class="aura-response"></p>
+        <button id="noContinue" class="continue-btn" style="display: none;">Continue</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Popup 8 - No path: System message -->
+    <!-- Popup 8 - No path: System message + Quiz -->
+<!-- Popup 8 - No path: System message + Quiz -->
+<div id="imgPopup8" class="popup-overlay">
+  <div class="warning-box">
+    <div class="warning-stripe top"></div>
+    <div class="warning-content">
+      <div class="warning-header">
+        <span class="system-text">SYSTEM</span>
+        <img src="warning-icon.png" class="warning-icon" alt="warning">
+        <span class="system-text">MESSAGE</span>
+      </div>
+      
+      <div class="warning-body" id="warningBodyNo">
+        <img src="mic-icon.png" class="mic-icon" alt="mic">
+        <ul id="warningTextNo" class="warning-list"></ul>
+      </div>
+      
+      <!-- Quiz Section (hidden initially) -->
+      <div id="quizSectionNo" class="quiz-section">
+        <p class="quiz-question">If AI posts content for you, who is responsible if harm occurs?</p>
+        <div class="quiz-options">
+          <button id="imgOption2aNo" class="quiz-option">You are responsible</button>
+          <button id="imgOption2bNo" class="quiz-option">The AI is responsible</button>
+        </div>
+        <p id="imgQuizFeedbackNo" class="quiz-feedback"></p>
+        <button id="imgTryAgainNo" class="continue-btn" style="display: none;">Try Again</button>
+        <button id="imgQuizContinueNo" class="continue-btn" style="display: none;">Continue</button>
+      </div>
+      
+      <button id="noContinue2" class="continue-btn">Continue</button>
+    </div>
+    <div class="warning-stripe bottom"></div>
+  </div>
+</div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
