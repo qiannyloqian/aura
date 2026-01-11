@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+  <title>Aura</title>
+  
+</head>
+<body>
+  <audio id="bgMusic" loop>
+  <source src="instrumental-ambient-calming-269887.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="typingsound" loop>
+  <source src="keyboard-typing-sound-effect-335503.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="notifSound">
+  <source src="notification-tone-443095.mp3" type="audio/mpeg">
+</audio>
+
+  <div id="container" class="screen active">
+    <div id="content">
+      <!-- Your content goes here -->
+      <p>Aura</p>
+      <h1>It has been one week since you installed Aura, your life management AI.</h1>
+      <button id="startBtn">Enter</button>
+    </div>
+  </div>
+
+  <div id="container2" class="screen">
+    <div id="content2">
+      <h1 id="typeText"></h1>
+      <button id="ctabtn">Enter Management</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
