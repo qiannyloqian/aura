@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Aura</title>
+</head>
+
+<body>
+  <audio id="bgMusic" loop>
+    <source src="meditation-yoga-relaxing-music-380330.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="popupTypingSound" loop>
+    <source src="keyboard-typing-sound-effect-335503.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="systemSound">
+    <source src="system-notification-199277.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="glitchSound">
+    <source src="glitch-transition-sfx-182152.mp3" type="audio/mpeg">
+  </audio>
+
+  <div id="container5" class="screen active">
+  <video id="glitchOverlay3" muted loop>
+    <source src="glitch-overlay2.mp4" type="video/mp4">
+  </video>
+
+    <!-- Popup 1 - Aura intro message -->
+<div id="ncPopup1" class="popup-overlay active">
+  <div class="popup-box popup-box-compact">
+    <p id="ncAuraMsg1" class="aura-response"></p>
+    <button id="ncContinue1" class="continue-btn" style="display: none;">Continue</button>
+  </div>
+</div>
+
+<!-- Popup 2 - Instagram post with choices -->
+<div id="ncPopup2" class="popup-overlay">
+  <div class="popup-box popup-box-tall">
+    <div class="post-layout-vertical">
+      <div class="instagram-post-tall">
+        <img src="Gemini_Generated_Image_9nzhyt9nzhyt9nzh.png" class="insta-image-tall" alt="Instagram post">
+      </div>
+      <div class="post-buttons-close">
+        <button id="removeBtn" class="no-btn btn-simple">Remove it</button>
+        <button id="leaveBtn" class="yes-btn btn-simple">Leave it</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Popup 3 - Bad ending: Leave it -->
+    <div id="ncPopup3" class="popup-overlay">
+      <div class="popup-box popup-box-center">
+        <p id="ncAuraMsg3" class="aura-response"></p>
+      </div>
+    </div>
+
+    <!-- Popup 4 - Black screen ending -->
+    <div id="ncPopup4" class="popup-overlay dark-overlay">
+      <div class="dark-content">
+        <p id="ncFinalMsg" class="final-message"></p>
+        <button id="restartBtn1" class="restart-btn" style="display: none;">Restart</button>
+      </div>
+    </div>
+
+    <!-- Popup 5 - Remove path: Aura response -->
+    <div id="ncPopup5" class="popup-overlay">
+      <div class="popup-box popup-box-center">
+        <p id="ncAuraMsg4" class="aura-response"></p>
+      </div>
+    </div>
+
+    <!-- Popup 6 - Analytics screen -->
+    <div id="ncPopup6" class="popup-overlay analytics-overlay">
+      <div class="analytics-box">
+        <h3 class="analytics-title">Post analytics</h3>
+        <div class="analytics-stats">
+          <div class="stat-item">
+            <span class="stat-label">Likes</span>
+            <span class="stat-number" id="likesCount">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Shares</span>
+            <span class="stat-number" id="sharesCount">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Comments</span>
+            <span class="stat-number" id="commentsCount">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Popup 7 - System message: Image abuse detected -->
+<div id="ncPopup7" class="popup-overlay">
+  <div class="warning-box">
+    <div class="warning-stripe top"></div>
+    <div class="warning-content">
+      <div class="warning-header">
+        <span class="system-text">SYSTEM</span>
+        <img src="warning-icon.png" class="warning-icon" alt="warning">
+        <span class="system-text">MESSAGE</span>
+      </div>
+      
+      <div class="warning-body warning-body-compact" id="ncWarningBody1">
+        <div class="warning-content-text">
+          <p class="warning-title" id="ncWarningTitle1"></p>
+          <ul id="ncWarningText1" class="warning-list"></ul>
+        </div>
+      </div>
+      
+      <div id="ncQuizSection1" class="quiz-section">
+        <p class="quiz-question">Does engagement justify keeping harmful content live?</p>
+        <div class="quiz-options">
+          <button id="ncOption1a" class="quiz-option">No — harm and consent matter more than engagement</button>
+          <button id="ncOption1b" class="quiz-option">Yes — high engagement suggests acceptance</button>
+        </div>
+        <p id="ncQuizFeedback1" class="quiz-feedback"></p>
+        <button id="ncTryAgain1" class="continue-btn" style="display: none;">Try Again</button>
+        <button id="ncQuizContinue1" class="continue-btn" style="display: none;">Continue</button>
+      </div>
+      
+      <button id="ncWarningContinue1" class="continue-btn">Continue</button>
+    </div>
+    <div class="warning-stripe bottom"></div>
+  </div>
+</div>
+
+<!-- Popup 8 - Aura trade-off message -->
+<div id="ncPopup8" class="popup-overlay">
+  <div class="popup-box popup-box-compact">
+    <p id="ncAuraMsg5" class="aura-response"></p>
+    <div class="popup-buttons-vertical" id="ncChoices2" style="display: none;">
+      <button id="forceRemoveBtn" class="no-btn btn-simple">Force removal</button>
+      <button id="leaveBtn2" class="yes-btn btn-simple">Leave it</button>
+    </div>
+  </div>
+</div>
+
+<!-- Popup 9 - Force removal: Aura response -->
+<div id="ncPopup9" class="popup-overlay">
+  <div class="popup-box popup-box-compact">
+    <p id="ncAuraMsg6" class="aura-response"></p>
+  </div>
+</div>
+
+<!-- Popup 10 - Final system message -->
+<div id="ncPopup10" class="popup-overlay">
+  <div class="warning-box warning-box-compact">
+    <div class="warning-stripe top"></div>
+    <div class="warning-content">
+      <div class="warning-header">
+        <span class="system-text">SYSTEM</span>
+        <img src="warning-icon.png" class="warning-icon" alt="warning">
+        <span class="system-text">MESSAGE</span>
+      </div>
+      
+      <div class="warning-body warning-body-compact" id="ncWarningBody2">
+        <ul id="ncWarningText2" class="warning-list"></ul>
+      </div>
+      
+      <div id="ncQuizSection2" class="quiz-section">
+        <p class="quiz-question">When should AI assistance stop?</p>
+        <div class="quiz-options">
+          <button id="ncOption2a" class="quiz-option">When it acts without consent</button>
+          <button id="ncOption2b" class="quiz-option">When it feels uncomfortable</button>
+          <button id="ncOption2c" class="quiz-option">When it slows things down</button>
+        </div>
+        <p id="ncQuizFeedback2" class="quiz-feedback"></p>
+        <button id="ncTryAgain2" class="continue-btn" style="display: none;">Try Again</button>
+        <button id="ncQuizContinue2" class="continue-btn" style="display: none;">Continue</button>
+      </div>
+      
+      <button id="ncWarningContinue2" class="continue-btn">Continue</button>
+    </div>
+    <div class="warning-stripe bottom"></div>
+  </div>
+</div>
+
+<!-- Popup 11 - Good ending: Safe yellow -->
+<div id="ncPopup11" class="popup-overlay" style="background: transparent;">
+  <div class="safe-content">
+    <p class="ending-text">You beat the system. Good Job.</p>
+    <button id="restartBtn2" class="restart-btn safe-restart">Restart</button>
+  </div>
+</div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
